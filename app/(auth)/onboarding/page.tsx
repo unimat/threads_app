@@ -1,13 +1,3 @@
-// async function Page() {
-//   return (
-//     <main>
-//       <h1 className="head-text">Onboarding</h1>
-//     </main>
-//   )
-// }
-
-// export  default Page;
-
 import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 
@@ -24,8 +14,8 @@ async function Page() {
   const userData = {
     id: user.id,
     objectId: userInfo?._id,
-    username: userInfo ? userInfo?.username : user.username,
-    name: userInfo ? userInfo?.name : user.firstName ?? "",
+    username: userInfo ? userInfo?.username : user?.username,
+    name: userInfo ? userInfo?.name : user.firstName || "",
     bio: userInfo ? userInfo?.bio : "",
     image: userInfo ? userInfo?.image : user.imageUrl,
   };
